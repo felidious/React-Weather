@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { Grid } from '@material-ui/core'
 
 const api = {
   key:"fc37aed69a3db487b6b62292a6cbe498",
@@ -6,6 +7,9 @@ const api = {
 }
 
 function App() {
+
+
+
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
@@ -34,6 +38,7 @@ function App() {
   }
 
   return (
+    <Grid item sm={12} lg={5}>
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
       <main>
         <div className="search-box">
@@ -61,7 +66,9 @@ function App() {
         </div>
         ) : ('')}
       </main>
+      
     </div>
+    </Grid>
   );
 }
 
